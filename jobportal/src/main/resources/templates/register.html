@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/font-awesome.min.css}"/>
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/styles.css}"/>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"/>
+    <meta charset="UTF-8"/>
+    <title>Sign Up</title>
+    <style>
+        .form-wrapper {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .form-control {
+            max-width: 100%;
+        }
+
+        .form-group input,
+        .form-group select {
+            max-width: 100%;
+        }
+
+        .full-height-center {
+            min-height: calc(100vh - 150px);
+        }
+
+    </style>
+</head>
+<body class="background">
+<nav class="main_div">
+    <div class="logo_left">
+        <a th:href="@{/}" class="d-flex align-items-center white">
+            <label class="logo">jobPortal</label>
+            <label class="logo_com">.com</label>
+        </a>
+    </div>
+</nav>
+
+<section class="content hidden-overflow d-flex justify-content-center align-items-center full-height-center">
+    <div class="form-wrapper">
+        <div class="d-flex justify-content-center mb-4">
+            <h1 class="heading_font font-weight-bold">Create User Account</h1>
+        </div>
+        <div class="myForm">
+            <form th:action="@{/register/new}" th:object="${user}" method="post">
+                <div class="box-body bozero">
+
+                    <div class="form-group">
+                        <div th:if="${error}" class="alert alert-danger" role="alert">
+                            <p th:text="${error}"></p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <input placeholder="Email" name="email" th:field="*{email}" type="email"
+                               class="form-control" required/>
+                    </div>
+
+                    <div class="form-group">
+                        <input placeholder="Password" name="password" th:field="*{password}" type="password"
+                               class="form-control pwd" minlength="8" required/>
+                    </div>
+
+                    <div class="form-group">
+                        <select required class="form-control" th:field="*{userTypeId}">
+                            <option disabled selected value="">Select user type</option>
+                            <th:block th:each="userType : ${getAllTypes}">
+                                <option th:value="${userType.userTypeId}" th:text="${userType.userTypeName}"></option>
+                            </th:block>
+                        </select>
+                    </div>
+
+                    <div class="form-group text-center mt-4">
+                        <button type="submit" class="myBtn py-3 px-4">Save</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <label class="copy-right">Copyright &copy; kCn333</label>
+</footer>
+
+<script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>
