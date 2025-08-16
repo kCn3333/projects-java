@@ -17,6 +17,7 @@ The project uses Spring MVC, Spring Security, JPA (Hibernate), PostgreSQL, and T
 - **Thymeleaf + Bootstrap 5 (WebJars)**
 - **PostgreSQL**
 - **Lombok**
+- **Flyway**
 
 ---
 
@@ -30,14 +31,31 @@ spring.application.name=jobportal
 spring.datasource.url=jdbc:postgresql://localhost:5432/jobportal
 spring.datasource.username=myuser
 spring.datasource.password=mypassword
+# Flyway
+spring.flyway.enabled=true
+spring.flyway.locations=classpath:db/migration
+logging.level.org.flywaydb=DEBUG
 ```
 🔑 Make sure you have created a PostgreSQL database named jobportal and a user with the appropriate permissions.
 Copy application-example.properties to application.properties and update with your database credentials.
+Database Migrations
+
+The project uses Flyway to manage database schema changes.
+All migration scripts are located in:
+```
+src/main/resources/db/migration
+```
+
+Files must be named as V<version>__<description>.sql (e.g., V1__init.sql).
+
+Flyway automatically applies migrations at application startup.
+
+Already applied migrations are not repeated, so restarting the app is safe.
 
 ## ▶️ Running the application
 1. Clone the repository
 ```
-    git clone https://github.com/kcn333/java-projects/jobportal.git
+    git clone https://github.com/kcn3333/projects-java/jobportal.git
 
     cd jobportal
 ```
