@@ -102,12 +102,55 @@ jobportal-db → PostgreSQL database (exposed on port 5433)
 jobportal-app → Spring Boot application (exposed on port 8080)
 
 Example docker-compose.yml:
-```
+```yml
 version: '3.9'
 
 services:
 db:
-image: postgres:15-alpine
+image: postgres:15-alpineversion: '3.9'
+
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: jobportal-db
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - jobportal-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  app:
+    image: kcn333/jobportal-app:latest
+    container_name: jobportal-app
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: ${SPRING_DATASOURCE_URL}
+      SPRING_DATASOURCE_USERNAME: ${SPRING_DATASOURCE_USERNAME}
+      SPRING_DATASOURCE_PASSWORD: ${SPRING_DATASOURCE_PASSWORD}
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - jobportal-network
+
+volumes:
+  pgdata:
+
+networks:
+  jobportal-network:
+    driver: bridge
+
 container_name: jobportal-db
 ports:
 - "5433:5432"
