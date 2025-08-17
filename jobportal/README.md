@@ -38,7 +38,7 @@ logging.level.org.flywaydb=DEBUG
 ```
 🔑 Make sure you have created a PostgreSQL database named jobportal and a user with the appropriate permissions.
 Copy application-example.properties to application.properties and update with your database credentials.
-Database Migrations
+🔑Database Migrations
 
 The project uses Flyway to manage database schema changes.
 All migration scripts are located in:
