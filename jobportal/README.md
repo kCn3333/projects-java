@@ -78,6 +78,96 @@ or
 The app will be available at:
 👉 http://localhost:8080
 
+## 🐳 Running with Docker
+
+The application can also be run inside Docker containers using Spring Boot + PostgreSQL.
+
+1. Build the application image
+
+From the project root:
+```
+docker build -t jobportal-app:latest .
+```
+2. Run with Docker Compose
+
+A docker-compose.yml file is provided to run both the application and PostgreSQL.
+Start everything with:
+```
+docker-compose up -d
+```
+This will start two containers:
+
+jobportal-db → PostgreSQL database (exposed on port 5433)
+
+jobportal-app → Spring Boot application (exposed on port 8080)
+
+Example docker-compose.yml:
+```
+version: '3.9'
+
+services:
+db:
+image: postgres:15-alpine
+container_name: jobportal-db
+ports:
+- "5433:5432"
+environment:
+POSTGRES_DB: ${POSTGRES_DB}
+POSTGRES_USER: ${POSTGRES_USER}
+POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+volumes:
+- pgdata:/var/lib/postgresql/data
+networks:
+- jobportal-network
+healthcheck:
+test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER}"]
+interval: 5s
+timeout: 5s
+retries: 5
+
+app:
+image: kcn333/jobportal-app:latest
+container_name: jobportal-app
+ports:
+- "8080:8080"
+environment:
+SPRING_DATASOURCE_URL: ${SPRING_DATASOURCE_URL}
+SPRING_DATASOURCE_USERNAME: ${SPRING_DATASOURCE_USERNAME}
+SPRING_DATASOURCE_PASSWORD: ${SPRING_DATASOURCE_PASSWORD}
+depends_on:
+db:
+condition: service_healthy
+networks:
+- jobportal-network
+
+volumes:
+pgdata:
+
+networks:
+jobportal-network:
+driver: bridge
+```
+3. Environment variables
+
+Create a .env file in the project root with the following:
+```
+POSTGRES_DB=jobportal
+POSTGRES_USER=myuser
+POSTGRES_PASSWORD=mypassword
+
+SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/jobportal
+SPRING_DATASOURCE_USERNAME=myuser
+SPRING_DATASOURCE_PASSWORD=mypassword
+```
+4. Access
+
+Application → http://localhost:8080
+
+Database → localhost:5433
+
+5. Stop containers
+   docker-compose down
+
 ## 📌 Features
 
 - User roles
