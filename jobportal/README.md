@@ -53,13 +53,13 @@ Flyway automatically applies migrations at application startup.
 Already applied migrations are not repeated, so restarting the app is safe.
 
 ## ▶️ Running the application
-1. Clone the repository
+### 1. Clone the repository
 ```
     git clone https://github.com/kcn3333/projects-java/jobportal.git
 
     cd jobportal
 ```
-2. Run with Maven
+### 2. Run with Maven
 ```
     ./mvnw spring-boot:run
 ```
@@ -68,12 +68,12 @@ or
 ```
     mvn spring-boot:run
 ```
-3. Build jar
+### 3. Build jar
 ```
     mvn clean package
     java -jar target/jobportal-0.0.1-SNAPSHOT.jar
 ```
-4. Access
+### 4. Access
 
 The app will be available at:
 👉 http://localhost:8080
@@ -82,13 +82,13 @@ The app will be available at:
 
 The application can also be run inside Docker containers using Spring Boot + PostgreSQL.
 
-1. Build the application image
+### 1. Build the application image
 
 From the project root:
 ```
 docker build -t jobportal-app:latest .
 ```
-2. Run with Docker Compose
+### 2. Run with Docker Compose
 
 A docker-compose.yml file is provided to run both the application and PostgreSQL.
 Start everything with:
@@ -152,7 +152,7 @@ networks:
     driver: bridge
 
 ```
-3. Environment variables
+### 3. Environment variables
 
 Create a .env file in the project root with the following:
 ```
@@ -164,13 +164,13 @@ SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/jobportal
 SPRING_DATASOURCE_USERNAME=myuser
 SPRING_DATASOURCE_PASSWORD=mypassword
 ```
-4. Access
+### 4. Access
 
 Application → http://localhost:8080
 
 Database → localhost:5433
 
-5. Stop containers
+### 5. Stop containers
    docker-compose down
 
 ## 📌 Features
