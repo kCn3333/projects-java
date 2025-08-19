@@ -55,7 +55,7 @@ Already applied migrations are not repeated, so restarting the app is safe.
 ## ▶️ Running the application
 ### 1. Clone the repository
 ```
-    git clone https://github.com/kcn3333/projects-java/jobportal.git
+    git clone https://github.com/kcn3333/projects-java.git
 
     cd jobportal
 ```
