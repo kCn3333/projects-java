@@ -57,7 +57,7 @@ Already applied migrations are not repeated, so restarting the app is safe.
 ```
     git clone https://github.com/kcn3333/projects-java.git
 
-    cd jobportal
+    cd projects-java/jobportal
 ```
 ### 2. Run with Maven
 ```
