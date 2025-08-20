@@ -1,4 +1,4 @@
-# Job Portal
+![Logo](logo.png) # Job Portal
 
 Job Portal is a web application built with **Spring Boot 3.4.5** that allows users to browse, manage, and apply to job postings.  
 The project uses Spring MVC, Spring Security, JPA (Hibernate), PostgreSQL, and Thymeleaf with Bootstrap for the frontend.
@@ -8,6 +8,7 @@ The project uses Spring MVC, Spring Security, JPA (Hibernate), PostgreSQL, and T
 ## 🚀 Technologies
 
 - **Java 21**
+- **Maven** (build & dependency management)
 - **Spring Boot 3.4.5**
     - Spring Web (MVC + REST)
     - Spring Data JPA (Hibernate)
@@ -18,6 +19,7 @@ The project uses Spring MVC, Spring Security, JPA (Hibernate), PostgreSQL, and T
 - **PostgreSQL**
 - **Lombok**
 - **Flyway**
+
 
 ---
 
