@@ -160,12 +160,13 @@ or with docker-compose.yml:
 ```yaml
 services:
   clients-api:
-    build: kcn333/clients-api:latest
+    image: kcn333/clients-api:1.0
     container_name: clients-api
     ports:
       - "8080:8080"
     volumes:
       - ./data:/app/data
+
 ```
 
 ### 📜 License
