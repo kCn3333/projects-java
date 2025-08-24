@@ -1,8 +1,8 @@
 services:
   clients-api:
-    build: .
+    image: kcn333/clients-api:1.0
     container_name: clients-api
     ports:
       - "8080:8080"
     volumes:
-      - ./data:/app/data
+      - ./data:/app/data   # for H2 database
