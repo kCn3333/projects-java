@@ -8,6 +8,7 @@ The project uses Spring MVC, Spring Security, JPA (Hibernate), PostgreSQL, and T
 ## 🚀 Technologies
 
 - **Java 21**
+- **Maven** (build & dependency management)
 - **Spring Boot 3.4.5**
     - Spring Web (MVC + REST)
     - Spring Data JPA (Hibernate)
@@ -18,6 +19,7 @@ The project uses Spring MVC, Spring Security, JPA (Hibernate), PostgreSQL, and T
 - **PostgreSQL**
 - **Lombok**
 - **Flyway**
+
 
 ---
 
@@ -55,9 +57,9 @@ Already applied migrations are not repeated, so restarting the app is safe.
 ## ▶️ Running the application
 ### 1. Clone the repository
 ```
-    git clone https://github.com/kcn3333/projects-java/jobportal.git
+    git clone https://github.com/kcn3333/projects-java.git
 
-    cd jobportal
+    cd projects-java/jobportal
 ```
 ### 2. Run with Maven
 ```
