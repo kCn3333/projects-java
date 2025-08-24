@@ -1,14 +1,13 @@
-# Use official OpenJDK 24 image as base
-FROM eclipse-temurin:24-jdk-alpine
-
-# Set working directory
+# Etap 1: Budowanie aplikacji
+FROM maven:3.9-eclipse-temurin-24-alpine AS build
 WORKDIR /app
+COPY pom.xml .
+COPY src ./src
+RUN mvn clean package -DskipTests
 
-# Copy Maven build artifact
-COPY target/clients-api-0.0.1-SNAPSHOT.jar app.jar
-
-# Expose port
+# Etap 2: Uruchamianie aplikacji
+FROM eclipse-temurin:24-jdk-alpine
+WORKDIR /app
+COPY --from=build /app/target/clients-api-0.0.1-SNAPSHOT.jar app.jar
 EXPOSE 8080
-
-# Run the application
-ENTRYPOINT ["java","-jar","app.jar"]
+CMD ["java", "-jar", "app.jar"]
