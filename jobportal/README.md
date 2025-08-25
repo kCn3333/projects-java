@@ -1,4 +1,4 @@
-#   <p align="left"><img src="/img/logo.png" alt="Job Portal Logo" width="200"/></p>
+#   <p align="left"><img src="img/logo.png" alt="Job Portal Logo" width="200"/></p>
 
 <b>Job Portal</b> is a web application built with **Spring Boot 3.4.5** that allows users to browse, manage, and apply to job postings.  
 The project uses Spring MVC, Spring Security, JPA (Hibernate), PostgreSQL, and Thymeleaf with Bootstrap for the frontend.
@@ -53,7 +53,7 @@ Files must be named as V<version>__<description>.sql (e.g., V1__init.sql).
 Flyway automatically applies migrations at application startup.
 
 Already applied migrations are not repeated, so restarting the app is safe.
-<p align="center"> <img src="/img/schema.png" alt="Database Schema"/> </p>
+<p align="center"> <img src="img/schema.png" alt="Database Schema"/> </p>
 
 ## ▶️ Running the application
 ### 1. Clone the repository
@@ -196,7 +196,7 @@ Database → localhost:5433
 
     - Date Posted: Today, Last 7 Days, Last 30 Days
 
-<p align="center"> <img src="/img/085731.png" alt="Job Portal Screenshot"/> </p>
+<p align="center"> <img src="img/085731.png" alt="Job Portal Screenshot"/> </p>
 
 ## 📂 Project structure
 ```
