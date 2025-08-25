@@ -99,9 +99,9 @@ You can use these accounts to log in and test role-based access control.
 
 | Username | Password | Role    |
 |----------|----------|---------|
-| user     | pass     | USER    |
-| manager  | pass     | MANAGER |
-| admin    | pass     | ADMIN   |
+| user     | user     | USER    |
+| manager  | manager  | MANAGER |
+| admin    | admin    | ADMIN   |
 
 ⚠️ These credentials are intended **only for local development and testing**.  
 Do not use them in production environments.
