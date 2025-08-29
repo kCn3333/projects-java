@@ -130,7 +130,7 @@ This will execute all integration tests, checking endpoints for correct response
 ## ▶️ Running the Application
 Clone the repository:
 ```
-git clone https://github.com/<your-repo>/clients-api.git
+git clone https://github.com/kcn3333/projects-java.git
 cd clients-api
 ```
 Start the application:
