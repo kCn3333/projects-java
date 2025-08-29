@@ -89,7 +89,7 @@ These scripts are executed in order, so V2__sample_products.sql runs after the i
 
 ⚠️ Note: Flyway only applies migrations that haven’t been applied yet. If you modify an existing migration after it has been executed, changes will not be applied automatically. To apply new changes, create a new migration version (e.g., `V3__update_products.sql`).
 
-Database Schema
+<p align="center"> <img src="img/schema.png" alt="Database Schema"/> </p>
 
 ## ▶️ Running the application
 ### 1. Clone the repository
