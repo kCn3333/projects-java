@@ -1,11 +1,11 @@
-# Etap 1: Budowanie aplikacji
+# Stage 1: building
 FROM maven:3.9-eclipse-temurin-24-alpine AS build
 WORKDIR /app
 COPY pom.xml .
 COPY src ./src
 RUN mvn clean package -DskipTests
 
-# Etap 2: Uruchamianie aplikacji
+# Stage 2: running
 FROM eclipse-temurin:24-jdk-alpine
 WORKDIR /app
 COPY --from=build /app/target/clients-api-0.0.1-SNAPSHOT.jar app.jar
