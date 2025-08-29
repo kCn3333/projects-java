@@ -1,5 +1,4 @@
- 📦 Orders API 
----
+# 📦 Orders API
 is a RESTful backend service for managing **users, products, and orders**. 
 It provides a secure authentication system with JWT tokens, role-based access control, and CRUD operations for products and orders. 
 The API communicates exclusively using **JSON request and response bodies**, making it easy to integrate with frontend applications or other services. 
