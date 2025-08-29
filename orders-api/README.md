@@ -111,7 +111,7 @@ Database Schema
    java -jar target/orders-api-0.0.1-SNAPSHOT.jar
    ```
 ### 4. Access
-   The app will be available at: 👉 http://localhost:8080
+   The app will be available at: 👉 http://localhost:8080/
 
 ---
 
@@ -250,22 +250,22 @@ POST	    /api/auth/register	        Register a new user	            PUBLIC
 POST	    /api/auth/login	        Authenticate user, returns JWT	    PUBLIC
 >> Users
 Method	    Endpoint	                Description                    	Role
-GET	    /api/users/info	        Get current user info	        USER / ADMIN
+GET	        /api/users/info	        Get current user info	        USER / ADMIN
 DELETE	    /api/users	                Delete current user	        USER / ADMIN
-PUT	    /api/users/password	        Update password         	USER / ADMIN
+PUT	        /api/users/password	        Update password         	USER / ADMIN
 >> Products
 Method	    Endpoint	                Description	                Role
-GET	    /api/products	        List all products	        PUBLIC
-GET	    /api/products/{id}	        Get product details	        PUBLIC
+GET	        /api/products	        List all products	        PUBLIC
+GET	        /api/products/{id}	        Get product details	        PUBLIC
 POST	    /api/products	        Add a new product	        ADMIN
-PUT	    /api/products/{id}	        Update product	                ADMIN
+PUT	        /api/products/{id}	        Update product	                ADMIN
 DELETE	    /api/products/{id}	        Delete product	                ADMIN
 >> Orders
 Method	    Endpoint	                Description	                Role
-GET	    /api/orders                	List current user's orders	USER / ADMIN
+GET	        /api/orders                	List current user's orders	    USER / ADMIN
 POST	    /api/orders	                Create new order	        USER / ADMIN
-GET	    /api/orders/{orderId}	Get order details	        ADMIN
-PUT	    /api/orders/{orderId}/status	Update order status	ADMIN
+GET	        /api/orders/{orderId}	Get order details	            ADMIN
+PUT	        /api/orders/{orderId}/status	Update order status	    ADMIN
 ```
 
 
