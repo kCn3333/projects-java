@@ -8,6 +8,6 @@ RUN mvn clean package -DskipTests
 # Stage 2: Run
 FROM eclipse-temurin:24-jdk-alpine
 WORKDIR /app
-COPY --from=build /app/target/clients-api-0.0.1-SNAPSHOT.jar app.jar
+COPY --from=build /app/target/orders-api-0.0.1-SNAPSHOT.jar app.jar
 EXPOSE 8080
 CMD ["java", "-jar", "app.jar"]
