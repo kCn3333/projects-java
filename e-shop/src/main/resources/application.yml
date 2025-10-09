@@ -1,0 +1,66 @@
+spring:
+  application:
+    name: e-shop
+  main:
+    allow-bean-definition-overriding: true
+    banner-mode: off
+    profiles:
+      active: prod
+  jpa:
+    open-in-view: true
+
+  custom:
+    search:
+      top-k: ${TOP_K}         # for similarity search
+    admin-account:            # credentials for default admin account
+      username: ${ADMIN_USERNAME}
+      password: ${ADMIN_PASSWORD}
+      email: admin@eshop.com
+
+
+  ai:
+    ollama:
+      embedding:
+        options:
+          model: ${EMBEDDING_MODEL:mxbai-embed-large:latest}  #  embedding-model
+      chat:
+        options:
+          model: ${CHAT_MODEL:gemma3:4b}
+          # model: qwen3:8b
+          # model: deepseek-r1:8b
+      base-url: ${OLLAMA_URL:http://localhost:11434}  # OLLAMA URL
+    openai:
+      api-key: ${OPENAI_API_KEY:dummy-key}            # OPENAI API KEY
+    vector:
+      pgvector:
+        enabled: true
+        initialize-schema: true
+
+  datasource:
+    url: jdbc:postgresql://${POSTGRES_URL}:5432/${POSTGRES_DB}
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+
+server:
+  port: 8080
+
+jpa:
+  show-sql: false
+  properties:
+    hibernate:
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+  hibernate:
+    ddl-auto: validate
+
+  sql:
+    init:
+      schema-locations: classpath:db/vectorstore-schema.sql
+      mode: always
+
+logging:
+  level:
+    com.kcn: INFO
+    org.springframework: WARN
+    org.hibernate: WARN
+

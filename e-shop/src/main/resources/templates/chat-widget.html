@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<body>
+<!-- AI Chat Widget Fragment -->
+<div th:fragment="ai-chat-widget" sec:authorize="!hasRole('ADMIN')">
+    <div id="aiChatWidget" class="ai-chat-widget">
+        <div class="ai-chat-container card bg-dark border-light">
+            <div class="card-header bg-primary border-light d-flex justify-content-between align-items-center">
+                <h6 class="mb-0 text-white">
+                    <i class="bi bi-robot me-2"></i>AI Assistant
+                </h6>
+                <button type="button" class="btn-close btn-close-white" onclick="toggleAIChat()"></button>
+            </div>
+
+            <div id="aiChatMessages" class="ai-chat-messages card-body">
+                <!-- Messages will be added here by JavaScript -->
+            </div>
+
+            <div class="card-footer border-light">
+                <form id="aiChatForm" class="d-flex gap-2">
+                    <input type="text"
+                           id="aiMessageInput"
+                           class="form-control bg-dark text-light border-light"
+                           placeholder="Ask about your orders or products..."
+                           required>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="bi bi-send"></i>
+                    </button>
+                </form>
+                <small class="text-muted mt-2 d-block">
+                    <i class="bi bi-info-circle"></i> I can help with orders and product information
+                </small>
+            </div>
+        </div>
+
+        <button class="ai-chat-toggle btn btn-primary rounded-circle" onclick="toggleAIChat()">
+            <i class="bi bi-robot"></i>
+        </button>
+    </div>
+</div>
+</body>
+</html>
