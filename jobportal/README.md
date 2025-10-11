@@ -4,6 +4,28 @@
 The project uses Spring MVC, Spring Security, JPA (Hibernate), PostgreSQL, and Thymeleaf with Bootstrap for the frontend.
 
 ---
+## 📌 Features
+
+- User roles
+
+    - Seeker – can browse job offers, apply to jobs, and manage their profile (including profile picture).
+
+    - Recruiter – can create, edit, and delete job offers, view applications, and see how many people applied.
+
+- Account management – user registration and login (Seeker or Recruiter).
+
+- Profile management – including uploading a profile picture.
+
+- Job listings with filters
+
+    - Type: Part-Time, Full-Time, Freelance
+
+    - Remote: Remote-Only, Office-Only, Partial-Remote
+
+    - Date Posted: Today, Last 7 Days, Last 30 Days
+
+<p align="center"> <img src="img/085731.png" alt="Job Portal Screenshot"/> </p>
+---
 
 ## 🚀 Technologies
 
@@ -175,28 +197,6 @@ Database → localhost:5433
 
 ### 5. Stop containers
    docker-compose down
-
-## 📌 Features
-
-- User roles
-
-    - Seeker – can browse job offers, apply to jobs, and manage their profile (including profile picture).
-
-    - Recruiter – can create, edit, and delete job offers, view applications, and see how many people applied.
-
-- Account management – user registration and login (Seeker or Recruiter).
-
-- Profile management – including uploading a profile picture.
-
-- Job listings with filters
-
-    - Type: Part-Time, Full-Time, Freelance
-
-    - Remote: Remote-Only, Office-Only, Partial-Remote
-
-    - Date Posted: Today, Last 7 Days, Last 30 Days
-
-<p align="center"> <img src="img/085731.png" alt="Job Portal Screenshot"/> </p>
 
 ## 📂 Project structure
 ```
