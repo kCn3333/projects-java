@@ -127,7 +127,11 @@ jobportal-db → PostgreSQL database (exposed on port 5433)
 
 jobportal-app → Spring Boot application (exposed on port 8080)
 
-Example docker-compose.yml:
+### Or simply pull and run it from my Docker Hub repository:
+```bash
+docker run -p 8080:8080 kcn333/jobportal-app:latest
+```
+### Or with docker-compose.yml:
 ```yml
 version: '3.9'
 
