@@ -25,6 +25,7 @@ The project uses Spring MVC, Spring Security, JPA (Hibernate), PostgreSQL, and T
     - Date Posted: Today, Last 7 Days, Last 30 Days
 
 <p align="center"> <img src="img/085731.png" alt="Job Portal Screenshot"/> </p>
+
 ---
 
 ## 🚀 Technologies
