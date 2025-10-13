@@ -83,11 +83,13 @@ public class ProductEmbeddingService {
 
     public void updateProductInVectorStore(ProductDTO product) {
         try {
+            removeProductFromVectorStore(product.getId());
             addProductToVectorStore(product);
-            log.info("[VectorStore] " + product.getName() + " deleted successfully");
+            log.info("[VectorStore] Updated vector for product: {}", product.getName());
         } catch (Exception e) {
             throw new EmbeddingOperationException("Failed to update product in vector store", e);
         }
     }
+
 
 }

@@ -24,7 +24,11 @@ public class GlobalExceptionHandler {
     private final AdminConfig adminConfig;
 
 
-    @ExceptionHandler({IllegalArgumentException.class, IllegalStateException.class, EntityNotFoundException.class, MethodArgumentTypeMismatchException.class, NoHandlerFoundException.class})
+    @ExceptionHandler({IllegalArgumentException.class,
+            IllegalStateException.class,
+            EntityNotFoundException.class,
+            MethodArgumentTypeMismatchException.class,
+            NoHandlerFoundException.class})
     public String handleUserExceptions(Exception e,
                                        RedirectAttributes redirectAttributes,
                                        HttpServletRequest request,

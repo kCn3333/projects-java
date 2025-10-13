@@ -56,8 +56,10 @@ public class ProductService {
         Category category = categoryRepository.findByName(dto.getCategoryName())
                 .orElseThrow(() -> new IllegalArgumentException("Category not found: " + dto.getCategoryName()));
 
+        boolean isUpdate = dto.getId() != null;
         Product product;
-        if (dto.getId() != null) {
+
+        if (isUpdate) {
             // UPDATE EXISTING PRODUCT
             product = productRepository.findById(dto.getId())
                     .orElseThrow(() -> new IllegalArgumentException("Product not found with id: " + dto.getId()));
@@ -86,9 +88,19 @@ public class ProductService {
         }
 
         Product saved = productRepository.save(product);
-        productEmbeddingService.addProductToVectorStore(productMapper.toDTO(saved));
+        ProductDTO savedDto = productMapper.toDTO(saved);
+
+        if(isUpdate) {
+            productEmbeddingService.updateProductInVectorStore(savedDto);
+        }
+        else {
+            productEmbeddingService.addProductToVectorStore(savedDto);
+            log.info("[VectorStore] Added vector for product: "+ savedDto.getName());
+        }
+
         log.info("[Product] " + saved.getName() + " saved successfully");
     }
+
     private String saveImageFile(MultipartFile imageFile) {
         try {
             return FileUploadUtil.saveFile(imageFile);
@@ -162,7 +174,7 @@ public class ProductService {
             log.info("[" + chatResponse.getMetadata().getModel() + "] Generating features for: " + productName + " from " + categoryName + " category");
             features = chatResponse.getResult().getOutput().getText();
         } catch (Exception e) {
-            throw new RuntimeException("Failed to generate description: " + e.getMessage(), e);
+            throw new RuntimeException("Failed to generate features: " + e.getMessage(), e);
 
         }
 

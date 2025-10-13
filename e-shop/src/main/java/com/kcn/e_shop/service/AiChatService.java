@@ -131,9 +131,7 @@ public class AiChatService {
 
                     if (!userOrders.isEmpty()) {
                         context.append("User's order history:\n");
-                        userOrders.stream()
-                                .limit(5) // Limit to recent 5 orders
-                                .forEach(order -> {
+                        userOrders.forEach(order -> {
                                     context.append("- Order #").append(order.id())
                                             .append(" | ").append(order.createdAt().format(DateTimeFormatter.ofPattern("MMM dd, yyyy")))
                                             .append(" | Status: ").append(order.status())
@@ -142,9 +140,7 @@ public class AiChatService {
 
                                     // Add order items for context
                                     if (order.items() != null && !order.items().isEmpty()) {
-                                        order.items().stream()
-                                                .limit(3) // Limit items per order
-                                                .forEach(item -> {
+                                        order.items().forEach(item -> {
                                                     context.append("  * ").append(item.productName())
                                                             .append(" (Qty: ").append(item.quantity())
                                                             .append(", Price: $").append(String.format("%.2f", item.productPrice()))
